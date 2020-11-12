@@ -16,7 +16,6 @@ RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && apk add \
         clamav=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
-        wget \
     && rm -rf /var/cache/apk/*
 
 COPY ./overlay /
