@@ -6,7 +6,7 @@ LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
-EXPOSE 80
+EXPOSE 3310
 
 COPY ./VERSION /tmp/VERSION
 RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
