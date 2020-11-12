@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo " - configuring clamav updater..."
+freshclam -d -c 6
+echo " - done."
