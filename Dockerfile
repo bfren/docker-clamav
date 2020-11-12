@@ -14,7 +14,7 @@ RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && apk update \
     && apk upgrade \
     && apk add \
-        clamav=${CLAMAV_VERSION} \
+        clamav-daemon=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
     && rm -rf /var/cache/apk/*
 
