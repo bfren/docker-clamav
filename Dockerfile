@@ -11,9 +11,11 @@ EXPOSE 3310
 COPY ./VERSION /tmp/VERSION
 RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && echo "ClamAV v${CLAMAV_VERSION}" \
-    && apk update \
-    && apk upgrade \
-    && apk add \
+    && apk -U upgrade \
+    && apt del \
+        bash \
+        tzdata \
+    && apk add --no-cache \
         clamav-daemon=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
     && rm -rf /var/cache/apk/*
