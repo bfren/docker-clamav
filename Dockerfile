@@ -14,7 +14,8 @@ RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && apk del \
         bash \
         tzdata \
-    && apk add --no-cache \
+    && apk -U upgrade \
+    && apk add \
         clamav-daemon=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
     && rm -rf /var/cache/apk/*

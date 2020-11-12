@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -f /var/lib/clamav/main.cvd ]; then
     echo " - downloading clam database..."
