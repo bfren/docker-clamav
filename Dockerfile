@@ -11,8 +11,7 @@ EXPOSE 3310
 COPY ./VERSION /tmp/VERSION
 RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && echo "ClamAV v${CLAMAV_VERSION}" \
-    && apk -U upgrade \
-    && apt del \
+    && apk del \
         bash \
         tzdata \
     && apk add --no-cache \
