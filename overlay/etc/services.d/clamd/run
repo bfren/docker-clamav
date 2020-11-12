@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo " - running clamav daemon..."
+clamd -c /etc/clamav/clam.conf

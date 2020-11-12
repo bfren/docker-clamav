@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ "$(echo PING | nc localhost 3310)" != "PONG" ] ; then
+	exit 1
+fi
