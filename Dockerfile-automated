@@ -8,6 +8,8 @@ LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
 
 EXPOSE 3310
 
+ENV CHECK_TIMES_PER_DAY=12
+
 COPY ./VERSION /tmp/VERSION
 RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && echo "ClamAV v${CLAMAV_VERSION}" \

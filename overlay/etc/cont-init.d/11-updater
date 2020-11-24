@@ -1,5 +1,11 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
-echo " - configuring clamav updater..."
-freshclam -d -c 6
+#======================================================================================================================
+# Configure freshclam
+#   -d = use daemon mode
+#   -c = check n times per day
+#======================================================================================================================
+
+echo " - configuring clamav updater to run ${FRESHCLAM_PER_DAY} times per day..."
+freshclam -d -c ${FRESHCLAM_PER_DAY}
 echo " - done."

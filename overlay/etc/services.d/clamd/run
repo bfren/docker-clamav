@@ -1,4 +1,9 @@
 #!/bin/sh
 
+#======================================================================================================================
+# Run clamav in daemon mode
+#   -c = use specified configuration file
+#======================================================================================================================
+
 echo " - running clamav daemon..."
-clamd -c /etc/clamav/clam.conf
+clamd -c /etc/clamav/clamd.conf
