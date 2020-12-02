@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
 #======================================================================================================================
 # Download the clamav database
 #======================================================================================================================
 
 if [ ! -f /var/lib/clamav/main.cvd ]; then
-    echo " - downloading clam database..."
+    _echo "downloading clam database..."
     freshclam
-    echo " - done."
+    _done
 fi
