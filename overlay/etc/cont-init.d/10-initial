@@ -5,7 +5,7 @@
 #======================================================================================================================
 
 if [ ! -f /var/lib/clamav/main.cvd ]; then
-    _echo "downloading clam database..."
+    _echo "Downloading ClamAV database..."
     freshclam
     _done
 fi

@@ -5,5 +5,5 @@
 #   -c = use specified configuration file
 #======================================================================================================================
 
-_echo "starting clamav daemon"
+_echo "Starting ClamAV daemon"
 clamd -c /etc/clamav/clamd.conf
