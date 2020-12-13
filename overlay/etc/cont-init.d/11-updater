@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv sh
 
+set -euo pipefail
+
 #======================================================================================================================
 # Configure freshclam
 #   -d = use daemon mode
