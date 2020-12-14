@@ -17,8 +17,7 @@ RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && apk add \
         clamav-daemon=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
-    && rm -rf /var/cache/apk/* \
-    && freshclam
+    && rm -rf /var/cache/apk/*
 
 COPY ./overlay /
 
