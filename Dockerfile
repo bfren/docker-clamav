@@ -1,4 +1,4 @@
-FROM bcgdesign/alpine-s6:1.0.11
+FROM bcgdesign/alpine-s6:1.0.12
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="ClamAV" \
@@ -17,7 +17,8 @@ RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
     && apk add \
         clamav-daemon=${CLAMAV_VERSION} \
         clamav-libunrar=${CLAMAV_VERSION} \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && freshclam
 
 COPY ./overlay /
 

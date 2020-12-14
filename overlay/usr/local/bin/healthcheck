@@ -1,6 +1,4 @@
 #!/bin/sh
-
 set -euo pipefail
-
 [[ "$(echo PING | nc localhost 3310)" = "PONG" ]] && exit 0
 exit 1
