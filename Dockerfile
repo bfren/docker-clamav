@@ -1,4 +1,4 @@
-FROM bcgdesign/alpine-s6:1.0.15
+FROM bcgdesign/alpine-s6:1.1.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="ClamAV" \
@@ -10,8 +10,8 @@ EXPOSE 3310
 
 ENV FRESHCLAM_PER_DAY=12
 
-COPY ./VERSION /tmp/VERSION
-RUN export CLAMAV_VERSION=$(cat /tmp/VERSION) \
+COPY ./CLAMAV_BUILD /tmp/CLAMAV_BUILD
+RUN export CLAMAV_VERSION=$(cat /tmp/CLAMAV_BUILD) \
     && echo "ClamAV v${CLAMAV_VERSION}" \
     && apk -U upgrade \
     && apk add \
