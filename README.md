@@ -6,6 +6,12 @@
 
 ClamAV installed in daemon mode. Database updates handled automatically.
 
+## Contents
+
+* [Ports](#ports)
+* [Environment Variables](#environment-variables)
+* [Authors / Licence / Copyright](#authors)
+
 ## Ports
 
 * 3310
