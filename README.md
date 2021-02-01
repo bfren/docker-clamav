@@ -12,9 +12,9 @@ ClamAV installed in daemon mode. Database updates handled automatically.
 
 ## Environment Variables
 
-```bash
-FRESHCLAM_PER_DAY=12 # the number of times per day freshclam will run to update definitions
-```
+| Variable            | Values  | Description                                                           | Default |
+| ------------------- | ------- | --------------------------------------------------------------------- | ------- |
+| `FRESHCLAM_PER_DAY` | integer | The number of times per day freshclam will run to update definitions. | 12      |
 
 ## Authors
 
