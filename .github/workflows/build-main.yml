@@ -59,6 +59,7 @@ jobs:
             bcgdesign/clamav:latest
             bcgdesign/clamav:${{ steps.version.outputs.content }}
             bcgdesign/clamav:clamav-${{ steps.clamav_revision.outputs.content }}
+            bcgdesign/clamav:clamav-${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
             bcgdesign/clamav:clamav-${{ steps.clamav_build.outputs.content }}
       -
         name: Image digest
