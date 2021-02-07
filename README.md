@@ -32,5 +32,5 @@ ClamAV installed in daemon mode. Database updates handled automatically.
 
 ## Copyright
 
-> Copyright (c) 2021 Ben Green <https://bcgdesign.com>  
+> Copyright (c) 2021 Ben Green <https://bcgdesign.com>
 > Unless otherwise stated
