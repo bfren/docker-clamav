@@ -1,8 +1,11 @@
 #!/usr/bin/with-contenv sh
 
+set -euo pipefail
+
+
 #======================================================================================================================
 # Run clamav in daemon mode
-#   -c use specified configuration file
+#   -c  use specified configuration file
 #======================================================================================================================
 
 _echo "Starting ClamAV daemon"
