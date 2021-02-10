@@ -8,7 +8,7 @@ set -euo pipefail
 #======================================================================================================================
 
 if [ ! -f /var/lib/clamav/main.cvd ]; then
-    _echo "Downloading ClamAV database..."
+    bcg-echo "Downloading ClamAV database..."
     freshclam
-    _done
+    bcg-done
 fi

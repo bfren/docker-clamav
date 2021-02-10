@@ -8,5 +8,5 @@ set -euo pipefail
 #   -c  use specified configuration file
 #======================================================================================================================
 
-_echo "Starting ClamAV daemon"
+bcg-echo "Starting ClamAV daemon"
 clamd -c /etc/clamav/clamd.conf
