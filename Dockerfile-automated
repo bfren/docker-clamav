@@ -16,5 +16,3 @@ COPY ./overlay /
 COPY ./CLAMAV_BUILD /tmp/CLAMAV_BUILD
 
 RUN bcg-install
-
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=5 CMD [ "healthcheck" ]
