@@ -8,17 +8,13 @@ LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
 
 EXPOSE 3310
 
-ENV FRESHCLAM_PER_DAY=12
-
-COPY ./CLAMAV_BUILD /tmp/CLAMAV_BUILD
-RUN export CLAMAV_VERSION=$(cat /tmp/CLAMAV_BUILD) \
-    && echo "ClamAV v${CLAMAV_VERSION}" \
-    && apk -U upgrade \
-    && apk add \
-        clamav-daemon=${CLAMAV_VERSION} \
-        clamav-libunrar=${CLAMAV_VERSION} \
-    && rm -rf /var/cache/apk/*
+ENV \
+    # the number of times per day freshclam will run to update definitions
+    CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
+COPY ./CLAMAV_BUILD /tmp/CLAMAV_BUILD
+
+RUN bcg-install
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=5 CMD [ "healthcheck" ]
