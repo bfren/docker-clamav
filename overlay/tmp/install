@@ -4,12 +4,21 @@ set -euo pipefail
 
 
 #======================================================================================================================
+# Get ClamAV Version.
+#======================================================================================================================
+
+cd /tmp
+
+VERSION=$(cat VERSION)
+bcg-debug "install" "ClamAV version ${VERSION}."
+
+
+#======================================================================================================================
 # Install ClamAV and dependencies.
 #======================================================================================================================
 
-CLAMAV_VERSION=$(cat /tmp/CLAMAV_VERSION)
-bcg-echo "Installing ClamAV v${CLAMAV_VERSION}..."
-apk add \
-    clamav-daemon=${CLAMAV_VERSION} \
-    clamav-libunrar=${CLAMAV_VERSION}
+bcg-echo "Installing ClamAV v${VERSION}..."
+apk add --no-cache \
+    clamav-daemon=${VERSION} \
+    clamav-libunrar=${VERSION}
 bcg-done
