@@ -73,7 +73,7 @@ TemporaryDirectory /tmp
 
 # Path to the database directory.
 # Default: hardcoded (depends on installation options)
-DatabaseDirectory /var/lib/clamav
+DatabaseDirectory <%= ${CLAMAV_DATABASE} %>
 
 # Only load the official signatures published by the ClamAV project.
 # Default: no

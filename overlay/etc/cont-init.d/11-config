@@ -1,11 +1,19 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
-export BCG_E="clamav/$(basename ${0})"
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Use base executable to terminate all services.
+# Create configuration files.
 #======================================================================================================================
 
-bcg-svc-terminate
+bcg-echo "Writing clamd config..."
+esh -o ${CLAMAV_CLAMD_CONF} \
+    ${TEMPLATES}/clamd.conf.esh
+bcg-done
+
+bcg-echo "Writing freshclam config..."
+esh -o ${CLAMAV_FRESHCLAM_CONF} \
+    ${TEMPLATES}/freshclam.conf.esh
+bcg-done
