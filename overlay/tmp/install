@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
@@ -10,7 +11,7 @@ set -euo pipefail
 cd /tmp
 
 VERSION=$(cat VERSION)
-bcg-debug "install" "ClamAV version ${VERSION}."
+bcg-debug "ClamAV version ${VERSION}."
 
 
 #======================================================================================================================
