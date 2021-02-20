@@ -23,3 +23,11 @@ apk add --no-cache \
     clamav-daemon=${VERSION} \
     clamav-libunrar=${VERSION}
 bcg-done
+
+
+#======================================================================================================================
+# Cleanup.
+#======================================================================================================================
+
+bcg-debug "Cleaning up default ClamAV configuration."
+rm -rf /etc/clamav/*
