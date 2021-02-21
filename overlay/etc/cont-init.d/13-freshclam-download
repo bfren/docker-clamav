@@ -1,13 +1,14 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Download the clamav database
+# Download the clamav database.
 #======================================================================================================================
 
-if [ ! -f /var/lib/clamav/main.cvd ]; then
+if [ ! -f ${CLAMAV_DATABASE}/main.cvd ]; then
     bcg-echo "Downloading ClamAV database..."
     freshclam
     bcg-done

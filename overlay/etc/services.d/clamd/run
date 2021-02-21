@@ -1,12 +1,15 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
+export BCG_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Run clamav in daemon mode
+# Run clamav in daemon mode.
+#
+# Clamd flags
 #   -c  use specified configuration file
 #======================================================================================================================
 
-bcg-echo "Starting ClamAV daemon"
-clamd -c /etc/clamav/clamd.conf
+bcg-echo "Starting ClamAV daemon."
+clamd -c ${CLAMAV_CLAMD_CONF}

@@ -1,12 +1,13 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
 set -euo pipefail
 export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Ping ClamAV port to check it is healthy.
+# Set environment variables.
 #======================================================================================================================
 
-[[ "$(echo PING | nc localhost 3310)" = "PONG" ]] && exit 0
-exit 1
+bcg-env "CLAMAV_DATABASE" "/var/lib/clamav"
+bcg-env "CLAMAV_CLAMD_CONF" "/etc/clamav/clamd.conf"
+bcg-env "CLAMAV_FRESHCLAM_CONF" "/etc/clamav/freshclam.conf"

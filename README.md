@@ -18,9 +18,9 @@ ClamAV installed in daemon mode. Database updates handled automatically.
 
 ## Environment Variables
 
-| Variable            | Values  | Description                                                           | Default |
-| ------------------- | ------- | --------------------------------------------------------------------- | ------- |
-| `FRESHCLAM_PER_DAY` | integer | The number of times per day freshclam will run to update definitions. | 12      |
+| Variable               | Values  | Description                                                           | Default |
+| ---------------------- | ------- | --------------------------------------------------------------------- | ------- |
+| `CLAMAV_FRESH_PER_DAY` | integer | The number of times per day freshclam will run to update definitions. | 12      |
 
 ## Authors
 

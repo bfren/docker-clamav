@@ -1,14 +1,19 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Configure freshclam
-#   -d  use daemon mode
-#   -c  check n times per day
+# Create configuration files.
 #======================================================================================================================
 
-bcg-echo "Configuring ClamAV updater to run ${FRESHCLAM_PER_DAY} times per day..."
-freshclam -d -c ${FRESHCLAM_PER_DAY}
+bcg-echo "Writing clamd config..."
+esh -o ${CLAMAV_CLAMD_CONF} \
+    ${TEMPLATES}/clamd.conf.esh
+bcg-done
+
+bcg-echo "Writing freshclam config..."
+esh -o ${CLAMAV_FRESHCLAM_CONF} \
+    ${TEMPLATES}/freshclam.conf.esh
 bcg-done

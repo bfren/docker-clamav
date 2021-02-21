@@ -1,12 +1,17 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
 set -euo pipefail
 export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Ping ClamAV port to check it is healthy.
+# Configure freshclam.
+#
+# freshclam flags
+#   -d  use daemon mode
+#   -c  check n times per day
 #======================================================================================================================
 
-[[ "$(echo PING | nc localhost 3310)" = "PONG" ]] && exit 0
-exit 1
+bcg-echo "Configuring ClamAV updater to run ${CLAMAV_FRESH_PER_DAY} times per day..."
+freshclam -d -c ${CLAMAV_FRESH_PER_DAY}
+bcg-done
