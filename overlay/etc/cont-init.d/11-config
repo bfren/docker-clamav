@@ -10,10 +10,10 @@ export BCG_E=`basename ${0}`
 
 bcg-echo "Writing clamd config..."
 esh -o ${CLAMAV_CLAMD_CONF} \
-    ${TEMPLATES}/clamd.conf.esh
+    ${BCG_TEMPLATES}/clamd.conf.esh
 bcg-done
 
 bcg-echo "Writing freshclam config..."
 esh -o ${CLAMAV_FRESHCLAM_CONF} \
-    ${TEMPLATES}/freshclam.conf.esh
+    ${BCG_TEMPLATES}/freshclam.conf.esh
 bcg-done
