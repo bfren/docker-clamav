@@ -1,36 +1,30 @@
-name: build-main
+name: dev
 
 on:
   push:
-    branches:
+    branches-ignore:
       - 'main'
     tags-ignore:
       - '**'
     paths:
-      - '.github/workflows/build-main.yml'
+      - '.github/workflows/dev.yml'
       - 'overlay/**'
       - 'Dockerfile'
       - 'VERSION'
 
 jobs:
-  main:
+  test:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
       -
-        name: Read ClamAV revision - revision
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./CLAMAV_REVISION
-        id: clamav_revision
-      -
-        name: Read ClamAV version - build
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./CLAMAV_BUILD
-        id: clamav_build
+        name: Checkout code
+        uses: actions/checkout@v2
       -
         name: Read image version
         uses: bencgreen/read-file-action@v1
@@ -57,11 +51,8 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/clamav:latest
+            bcgdesign/clamav:dev
             bcgdesign/clamav:${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav-${{ steps.clamav_revision.outputs.content }}
-            bcgdesign/clamav:clamav-${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav-${{ steps.clamav_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
