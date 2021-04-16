@@ -1,6 +1,7 @@
 # Docker ClamAV
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bencgreen/docker-clamav) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-clamav/dev?label=github) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bcgdesign/clamav?label=docker) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/clamav?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/clamav/latest?label=size)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bencgreen/docker-clamav) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/clamav?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/clamav/latest?label=size)<br/>
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-clamav/dev?label=build)
 
 [Docker Repository](https://hub.docker.com/r/bcgdesign/clamav) - [bcg|design ecosystem](https://github.com/bencgreen/docker)
 
