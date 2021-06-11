@@ -50,11 +50,11 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/clamav:latest
-            bcgdesign/clamav:${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_revision.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_build.outputs.content }}
+            bfren/clamav:latest
+            bfren/clamav:${{ steps.version.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
