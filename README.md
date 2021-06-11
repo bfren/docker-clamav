@@ -1,9 +1,9 @@
 # Docker ClamAV
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-clamav) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/clamav?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/clamav/latest?label=size)<br/>
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-clamav) ![Docker Pulls](https://img.shields.io/docker/pulls/bfren/clamav?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bfren/clamav/latest?label=size)<br/>
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-clamav/dev?label=build)
 
-[Docker Repository](https://hub.docker.com/r/bcgdesign/clamav) - [bfren ecosystem](https://github.com/bfren/docker)
+[Docker Repository](https://hub.docker.com/r/bfren/clamav) - [bfren ecosystem](https://github.com/bfren/docker)
 
 ClamAV installed in daemon mode. Database updates handled automatically.
 
