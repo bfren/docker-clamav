@@ -14,19 +14,19 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Read ClamAV revision - revision
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./CLAMAV_REVISION
         id: clamav_revision
       -
         name: Read ClamAV version - build
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./CLAMAV_BUILD
         id: clamav_build
       -
         name: Read image version
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./VERSION
         id: version
@@ -50,11 +50,11 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/clamav:latest
-            bcgdesign/clamav:${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_revision.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
-            bcgdesign/clamav:clamav${{ steps.clamav_build.outputs.content }}
+            bfren/clamav:latest
+            bfren/clamav:${{ steps.version.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.content }}-${{ steps.version.outputs.content }}
+            bfren/clamav:clamav${{ steps.clamav_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

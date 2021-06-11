@@ -1,13 +1,13 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
 # Set environment variables.
 #======================================================================================================================
 
-bcg-env "CLAMAV_DATABASE" "/var/lib/clamav"
-bcg-env "CLAMAV_CLAMD_CONF" "/etc/clamav/clamd.conf"
-bcg-env "CLAMAV_FRESHCLAM_CONF" "/etc/clamav/freshclam.conf"
+bf-env "CLAMAV_DATABASE" "/var/lib/clamav"
+bf-env "CLAMAV_CLAMD_CONF" "/etc/clamav/clamd.conf"
+bf-env "CLAMAV_FRESHCLAM_CONF" "/etc/clamav/freshclam.conf"

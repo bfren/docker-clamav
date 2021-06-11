@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
@@ -11,23 +11,23 @@ export BCG_E=`basename ${0}`
 cd /tmp
 
 VERSION=$(cat VERSION)
-bcg-debug "ClamAV version ${VERSION}."
+bf-debug "ClamAV version ${VERSION}."
 
 
 #======================================================================================================================
 # Install ClamAV and dependencies.
 #======================================================================================================================
 
-bcg-echo "Installing ClamAV v${VERSION}..."
+bf-echo "Installing ClamAV v${VERSION}..."
 apk add --no-cache \
     clamav-daemon=${VERSION} \
     clamav-libunrar=${VERSION}
-bcg-done
+bf-done
 
 
 #======================================================================================================================
 # Cleanup.
 #======================================================================================================================
 
-bcg-debug "Cleaning up default ClamAV configuration."
+bf-debug "Cleaning up default ClamAV configuration."
 rm -rf /etc/clamav/*
