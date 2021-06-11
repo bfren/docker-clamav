@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv sh
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
@@ -10,10 +10,10 @@ export BCG_E=`basename ${0}`
 
 bf-echo "Writing clamd config..."
 esh -o ${CLAMAV_CLAMD_CONF} \
-    ${BCG_TEMPLATES}/clamd.conf.esh
+    ${BF_TEMPLATES}/clamd.conf.esh
 bf-done
 
 bf-echo "Writing freshclam config..."
 esh -o ${CLAMAV_FRESHCLAM_CONF} \
-    ${BCG_TEMPLATES}/freshclam.conf.esh
+    ${BF_TEMPLATES}/freshclam.conf.esh
 bf-done
