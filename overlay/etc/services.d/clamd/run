@@ -11,5 +11,5 @@ export BCG_E="${PWD##*/}/$(basename ${0})"
 #   -c  use specified configuration file
 #======================================================================================================================
 
-bcg-echo "Starting ClamAV daemon."
+bf-echo "Starting ClamAV daemon."
 clamd -c ${CLAMAV_CLAMD_CONF}

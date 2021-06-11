@@ -15,4 +15,4 @@ ENV \
 COPY ./overlay /
 COPY ./CLAMAV_BUILD /tmp/VERSION
 
-RUN bcg-install
+RUN bf-install

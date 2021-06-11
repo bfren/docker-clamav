@@ -12,6 +12,6 @@ export BCG_E=`basename ${0}`
 #   -c  check n times per day
 #======================================================================================================================
 
-bcg-echo "Configuring ClamAV updater to run ${CLAMAV_FRESH_PER_DAY} times per day..."
+bf-echo "Configuring ClamAV updater to run ${CLAMAV_FRESH_PER_DAY} times per day..."
 freshclam -d -c ${CLAMAV_FRESH_PER_DAY}
-bcg-done
+bf-done

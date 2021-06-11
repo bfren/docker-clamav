@@ -9,7 +9,7 @@ export BCG_E=`basename ${0}`
 #======================================================================================================================
 
 if [ ! -f ${CLAMAV_DATABASE}/main.cvd ]; then
-    bcg-echo "Downloading ClamAV database..."
+    bf-echo "Downloading ClamAV database..."
     freshclam
-    bcg-done
+    bf-done
 fi
