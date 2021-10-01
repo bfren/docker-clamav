@@ -16,13 +16,13 @@ jobs:
         name: Read ClamAV revision - revision
         uses: bfren/read-file@v1
         with:
-          path: ./CLAMAV_REVISION
+          file: ./CLAMAV_REVISION
         id: clamav_revision
       -
         name: Read ClamAV version - build
         uses: bfren/read-file@v1
         with:
-          path: ./CLAMAV_BUILD
+          file: ./CLAMAV_BUILD
         id: clamav_build
       -
         name: Read image version
