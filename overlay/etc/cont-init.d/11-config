@@ -8,12 +8,10 @@ export BF_E=`basename ${0}`
 # Create configuration files.
 #======================================================================================================================
 
-bf-echo "Writing clamd config..."
-esh -o ${CLAMAV_CLAMD_CONF} \
-    ${BF_TEMPLATES}/clamd.conf.esh
+bf-echo "Generating clamd config."
+bf-esh ${BF_TEMPLATES}/clamd.conf.esh ${CLAMAV_CLAMD_CONF}
 bf-done
 
-bf-echo "Writing freshclam config..."
-esh -o ${CLAMAV_FRESHCLAM_CONF} \
-    ${BF_TEMPLATES}/freshclam.conf.esh
+bf-echo "Generating freshclam config."
+bf-esh ${BF_TEMPLATES}/freshclam.conf.esh ${CLAMAV_FRESHCLAM_CONF}
 bf-done
