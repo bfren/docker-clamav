@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine3.14-2.3.0
+FROM bfren/alpine-s6:alpine3.14-2.3.1
 
 EXPOSE 3310
 
