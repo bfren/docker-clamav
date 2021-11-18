@@ -29,5 +29,4 @@ ClamAV installed in daemon mode. Database updates handled automatically.
 
 ## Copyright
 
-> Copyright (c) 2021 bfren
-> Unless otherwise stated
+> Copyright (c) 2021 [bfren](https://bfren.dev) (unless otherwise stated)

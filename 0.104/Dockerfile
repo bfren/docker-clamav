@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine3.14-2.3.1
+FROM bfren/alpine-s6:alpineedge-2.3.1
 
 EXPOSE 3310
 
@@ -7,6 +7,6 @@ ENV \
     CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
-COPY ./CLAMAV_BUILD /tmp/VERSION
+COPY ./0.104/CLAMAV_BUILD /tmp/VERSION
 
 RUN bf-install

@@ -1,4 +1,4 @@
-name: dev
+name: dev-0_104
 
 on:
   push:
@@ -9,13 +9,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  test-0_104:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
-  build:
+  build-0_104:
     runs-on: ubuntu-latest
     steps:
       -
@@ -44,11 +44,13 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: ./0.104/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/clamav:dev
-            bfren/clamav:${{ steps.version.outputs.contents }}-beta
+            bfren/clamav:edge
+            bfren/clamav:clamav0.104-edge
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

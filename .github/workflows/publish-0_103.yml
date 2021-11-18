@@ -1,4 +1,4 @@
-name: publish
+name: publish-0_103
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  publish-0_103:
     runs-on: ubuntu-latest
     steps:
       -
@@ -16,13 +16,13 @@ jobs:
         name: Read ClamAV revision - revision
         uses: bfren/read-file@v1
         with:
-          file: ./CLAMAV_REVISION
+          file: ./0.103/CLAMAV_REVISION
         id: clamav_revision
       -
         name: Read ClamAV version - build
         uses: bfren/read-file@v1
         with:
-          file: ./CLAMAV_BUILD
+          file: ./0.103/CLAMAV_BUILD
         id: clamav_build
       -
         name: Read image version
@@ -59,6 +59,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: ./0.103/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
@@ -66,9 +68,12 @@ jobs:
             bfren/clamav:${{ steps.version_major.outputs.contents }}
             bfren/clamav:${{ steps.version_minor.outputs.contents }}
             bfren/clamav:${{ steps.version.outputs.contents }}
+            bfren/clamav:clamav0.103
             bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
-            bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}-${{ steps.version.outputs.contents }}
             bfren/clamav:clamav${{ steps.clamav_build.outputs.contents }}
+            bfren/clamav:clamav0.103-${{ steps.version_major.outputs.contents }}
+            bfren/clamav:clamav0.103-${{ steps.version_minor.outputs.contents }}
+            bfren/clamav:clamav0.103-${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
