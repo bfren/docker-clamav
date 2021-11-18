@@ -7,6 +7,6 @@ ENV \
     CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
-COPY ./CLAMAV_BUILD /tmp/VERSION
+COPY ./0.104/CLAMAV_BUILD /tmp/VERSION
 
 RUN bf-install
