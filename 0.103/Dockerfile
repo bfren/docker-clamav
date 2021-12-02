@@ -1,5 +1,8 @@
 FROM bfren/alpine-s6:alpine3.14-3.1.1
 
+ARG BF_IMAGE
+ARG BF_VERSION
+
 EXPOSE 3310
 
 ENV \
