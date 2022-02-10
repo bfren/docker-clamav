@@ -1,15 +1,15 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 set -euo pipefail
 export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Download the clamav database.
+# Create configuration files.
 #======================================================================================================================
 
-if [ ! -f ${CLAMAV_DATABASE}/main.cvd ]; then
-    bf-echo "Downloading ClamAV database..."
-    freshclam
-    bf-done
-fi
+bf-echo "Generating clamd config."
+bf-esh ${BF_TEMPLATES}/clamd.conf.esh ${CLAMAV_CLAMD_CONF}
+
+bf-echo "Generating freshclam config."
+bf-esh ${BF_TEMPLATES}/freshclam.conf.esh ${CLAMAV_FRESHCLAM_CONF}

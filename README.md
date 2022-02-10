@@ -25,8 +25,8 @@ ClamAV installed in daemon mode. Database updates handled automatically.
 
 ## Licence
 
-> [MIT](https://mit.bfren.dev/2020)
+> [MIT](https://mit.bfren.dev/2021)
 
 ## Copyright
 
-> Copyright (c) 2021 [bfren](https://bfren.dev) (unless otherwise stated)
+> Copyright (c) 2021-2022 [bfren](https://bfren.dev) (unless otherwise stated)
