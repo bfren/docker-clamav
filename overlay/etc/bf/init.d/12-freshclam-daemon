@@ -1,13 +1,17 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 set -euo pipefail
 export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Set environment variables.
+# Configure freshclam.
+#
+# freshclam flags
+#   -d  use daemon mode
+#   -c  check n times per day
 #======================================================================================================================
 
-bf-env "CLAMAV_DATABASE" "/var/lib/clamav"
-bf-env "CLAMAV_CLAMD_CONF" "/etc/clamav/clamd.conf"
-bf-env "CLAMAV_FRESHCLAM_CONF" "/etc/clamav/freshclam.conf"
+bf-echo "Configuring ClamAV updater to run ${CLAMAV_FRESH_PER_DAY} times per day..."
+freshclam -d -c ${CLAMAV_FRESH_PER_DAY}
+bf-done

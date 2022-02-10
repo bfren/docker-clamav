@@ -1,17 +1,15 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 set -euo pipefail
 export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Configure freshclam.
-#
-# freshclam flags
-#   -d  use daemon mode
-#   -c  check n times per day
+# Download the clamav database.
 #======================================================================================================================
 
-bf-echo "Configuring ClamAV updater to run ${CLAMAV_FRESH_PER_DAY} times per day..."
-freshclam -d -c ${CLAMAV_FRESH_PER_DAY}
-bf-done
+if [ ! -f ${CLAMAV_DATABASE}/main.cvd ]; then
+    bf-echo "Downloading ClamAV database..."
+    freshclam
+    bf-done
+fi
