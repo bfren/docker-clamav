@@ -11,5 +11,4 @@ export BF_E=`basename ${0}`
 if [ ! -f ${CLAMAV_DATABASE}/main.cvd ]; then
     bf-echo "Downloading ClamAV database..."
     freshclam
-    bf-done
 fi

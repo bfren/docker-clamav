@@ -10,8 +10,6 @@ export BF_E=`basename ${0}`
 
 bf-echo "Generating clamd config."
 bf-esh ${BF_TEMPLATES}/clamd.conf.esh ${CLAMAV_CLAMD_CONF}
-bf-done
 
 bf-echo "Generating freshclam config."
 bf-esh ${BF_TEMPLATES}/freshclam.conf.esh ${CLAMAV_FRESHCLAM_CONF}
-bf-done
