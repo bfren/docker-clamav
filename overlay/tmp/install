@@ -11,7 +11,7 @@ export BF_E=`basename ${0}`
 cd /tmp
 
 VERSION=$(cat CLAMAV_BUILD)
-bf-debug "ClamAV version ${VERSION}."
+bf-echo "ClamAV version ${VERSION}."
 
 
 #======================================================================================================================
@@ -36,5 +36,5 @@ freshclam
 # Cleanup.
 #======================================================================================================================
 
-bf-debug "Cleaning up default ClamAV configuration."
+bf-echo "Cleaning up default ClamAV configuration."
 rm -rf /etc/clamav/*
