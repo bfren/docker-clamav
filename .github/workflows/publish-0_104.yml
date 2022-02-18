@@ -71,6 +71,10 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
+            bfren/clamav:latest
+            bfren/clamav:${{ steps.version_major.outputs.contents }}
+            bfren/clamav:${{ steps.version_minor.outputs.contents }}
+            bfren/clamav:${{ steps.version.outputs.contents }}
             bfren/clamav:clamav0.104
             bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
             bfren/clamav:clamav${{ steps.clamav_build.outputs.contents }}
