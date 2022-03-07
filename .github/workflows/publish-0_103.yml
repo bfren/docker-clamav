@@ -23,12 +23,6 @@ jobs:
           file: ./0.103/CLAMAV_REVISION
         id: clamav_revision
       -
-        name: Read ClamAV version - build
-        uses: bfren/read-file@v1
-        with:
-          file: ./0.103/CLAMAV_BUILD
-        id: clamav_build
-      -
         name: Read image version
         uses: bfren/read-file@v1
         with:
@@ -59,6 +53,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -68,15 +69,20 @@ jobs:
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
+            BF_PUBLISH=1
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/clamav:clamav0.103
             bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
-            bfren/clamav:clamav${{ steps.clamav_build.outputs.contents }}
             bfren/clamav:clamav0.103-${{ steps.version_major.outputs.contents }}
             bfren/clamav:clamav0.103-${{ steps.version_minor.outputs.contents }}
             bfren/clamav:clamav0.103-${{ steps.version.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.103
+            ghcr.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.103-${{ steps.version_major.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.103-${{ steps.version_minor.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.103-${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
