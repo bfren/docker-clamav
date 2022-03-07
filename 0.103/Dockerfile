@@ -2,6 +2,7 @@ FROM bfren/alpine-s6:alpine3.14-4.1.1
 
 ARG BF_IMAGE
 ARG BF_VERSION
+ARG BF_PUBLISH
 
 EXPOSE 3310
 
