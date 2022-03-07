@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine3.15-4.1.1
+FROM bfren/alpine-s6:alpine<%= ${ALPINE_MINOR} %>-<%= ${BASE_REVISION} %>
 
 ARG BF_IMAGE
 ARG BF_VERSION
@@ -10,6 +10,6 @@ ENV \
     CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
-COPY ./0.104/overlay /
+COPY ./<%= ${CLAMAV_MINOR} %>/overlay /
 
 RUN bf-install
