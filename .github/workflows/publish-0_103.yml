@@ -20,7 +20,7 @@ jobs:
         name: Read ClamAV revision - revision
         uses: bfren/read-file@v1
         with:
-          file: ./0.103/CLAMAV_REVISION
+          file: ./0.103/overlay/tmp/CLAMAV_REVISION
         id: clamav_revision
       -
         name: Read image version
