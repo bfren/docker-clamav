@@ -1,4 +1,4 @@
-name: publish-0_104
+name: publish-0_105
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish-0_104:
+  publish-0_105:
     runs-on: ubuntu-latest
     steps:
       -
@@ -20,7 +20,7 @@ jobs:
         name: Read ClamAV revision - revision
         uses: bfren/read-file@v2
         with:
-          file: ./0.104/overlay/tmp/CLAMAV_REVISION
+          file: ./0.105/overlay/tmp/CLAMAV_REVISION
         id: clamav_revision
       -
         name: Read image version
@@ -65,7 +65,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./0.104/Dockerfile
+          file: ./0.105/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
@@ -73,16 +73,24 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/clamav:clamav0.104
+            bfren/clamav:latest
+            bfren/clamav:${{ steps.version_major.outputs.contents }}
+            bfren/clamav:${{ steps.version_minor.outputs.contents }}
+            bfren/clamav:${{ steps.version.outputs.contents }}
+            bfren/clamav:clamav0.105
             bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
-            bfren/clamav:clamav0.104-${{ steps.version_major.outputs.contents }}
-            bfren/clamav:clamav0.104-${{ steps.version_minor.outputs.contents }}
-            bfren/clamav:clamav0.104-${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav0.104
+            bfren/clamav:clamav0.105-${{ steps.version_major.outputs.contents }}
+            bfren/clamav:clamav0.105-${{ steps.version_minor.outputs.contents }}
+            bfren/clamav:clamav0.105-${{ steps.version.outputs.contents }}
+            ghcr.io/bfren/clamav:latest
+            ghcr.io/bfren/clamav:${{ steps.version_major.outputs.contents }}
+            ghcr.io/bfren/clamav:${{ steps.version_minor.outputs.contents }}
+            ghcr.io/bfren/clamav:${{ steps.version.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.105
             ghcr.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav0.104-${{ steps.version_major.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav0.104-${{ steps.version_minor.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav0.104-${{ steps.version.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.105-${{ steps.version_major.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.105-${{ steps.version_minor.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav0.105-${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
