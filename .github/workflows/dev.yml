@@ -1,4 +1,4 @@
-name: dev-0_105
+name: dev
 
 on:
   push:
@@ -7,13 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-0_105:
+  test:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v3
-  build-0_105:
+  build:
+    strategy:
+      matrix:
+        dotnet: [ "0.103", "0.104", "0.105", "1.0" ]
     runs-on: ubuntu-latest
     steps:
       -
@@ -54,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./0.105/Dockerfile
+          file: ./${{ matrix.clamav }}/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
@@ -62,12 +65,10 @@ jobs:
           push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/clamav:dev
-            bfren/clamav:${{ steps.version.outputs.contents }}-beta
-            bfren/clamav:clamav0.105-dev
-            ghcr.io/bfren/clamav:dev
-            ghcr.io/bfren/clamav:${{ steps.version.outputs.contents }}-beta
-            ghcr.io/bfren/clamav:clamav0.105-dev
+            bfren/clamav:clamav${{ matrix.clamav }}-dev
+            bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-beta
+            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-dev
+            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
