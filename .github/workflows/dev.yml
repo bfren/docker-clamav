@@ -16,7 +16,7 @@ jobs:
   build:
     strategy:
       matrix:
-        dotnet: [ "0.103", "0.104", "0.105", "1.0" ]
+        clamav: [ "0.103", "0.104", "0.105", "1.0" ]
     runs-on: ubuntu-latest
     steps:
       -
