@@ -1,11 +1,10 @@
 # Docker ClamAV
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-clamav) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fclamav) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fclamav)<br/>
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-clamav/dev-0_103?label=ClamAV+0.103+(LTS)) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-clamav/dev-0_104?label=ClamAV+0.104) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-clamav/dev-0_105?label=ClamAV+0.105) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-clamav/dev-1_0?label=ClamAV+1.0+(LTS))
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-clamav) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fclamav) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fclamav) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bfren/docker-clamav/dev.yml?branch=main)
 
 [Docker Repository](https://hub.docker.com/r/bfren/clamav) - [bfren ecosystem](https://github.com/bfren/docker)
 
-ClamAV installed in daemon mode. Database updates handled automatically.
+ClamAV (0.103 LTS, 0.104, 0.105, 1.0 LTS) installed in daemon mode. Database updates handled automatically.
 
 ## Contents
 
