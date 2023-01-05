@@ -20,7 +20,7 @@ jobs:
         run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
       -
-        name: Read ClamAV revision - revision
+        name: Read ClamAV version
         uses: bfren/read-file@v2
         with:
           file: ./${{ matrix.clamav }}/overlay/tmp/CLAMAV_REVISION
@@ -77,15 +77,15 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/clamav:clamav${{ matrix.clamav }}
-            bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_major.outputs.contents }}
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
             ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}
-            ghcr.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
             ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_major.outputs.contents }}
             ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}
             ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}
+            ghcr.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
       -
         name: Build and push default
         id: docker_build_default
