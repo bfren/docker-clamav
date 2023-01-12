@@ -28,4 +28,4 @@ ClamAV (0.103 LTS, 0.104, 0.105, 1.0 LTS) installed in daemon mode. Database upd
 
 ## Copyright
 
-> Copyright (c) 2020-2022 [bfren](https://bfren.dev) (unless otherwise stated)
+> Copyright (c) 2020-2023 [bfren](https://bfren.dev) (unless otherwise stated)
