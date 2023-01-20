@@ -8,6 +8,7 @@ on:
 jobs:
   publish:
     strategy:
+      fail-fast: false
       matrix:
         clamav: [ "0.103", "0.104", "0.105", "1.0" ]
     runs-on: ubuntu-latest
