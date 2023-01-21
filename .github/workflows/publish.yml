@@ -82,11 +82,6 @@ jobs:
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}
             bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_major.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}
       -
         name: Build and push default
         id: docker_build_default
@@ -105,10 +100,6 @@ jobs:
             bfren/clamav:${{ steps.version_major.outputs.contents }}
             bfren/clamav:${{ steps.version_minor.outputs.contents }}
             bfren/clamav:${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/clamav:latest
-            ghcr.io/bfren/clamav:${{ steps.version_major.outputs.contents }}
-            ghcr.io/bfren/clamav:${{ steps.version_minor.outputs.contents }}
-            ghcr.io/bfren/clamav:${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

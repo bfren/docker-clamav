@@ -68,8 +68,6 @@ jobs:
           tags: |
             bfren/clamav:clamav${{ matrix.clamav }}-dev
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-beta
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-dev
-            ghcr.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
