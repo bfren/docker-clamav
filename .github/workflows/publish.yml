@@ -59,7 +59,7 @@ jobs:
       -
         name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./${{ matrix.clamav }}/Dockerfile
@@ -78,7 +78,7 @@ jobs:
       -
         name: Build and push default
         id: docker_build_default
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./${{ matrix.clamav }}/Dockerfile
