@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        clamav: [ "0.103", "0.104", "0.105", "1.0" ]
+        clamav: [ "0.103", "0.104", "0.105", "1" ]
     runs-on: ubuntu-latest
     steps:
       -
