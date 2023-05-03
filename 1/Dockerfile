@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpineedge-4.4.15
+FROM bfren/alpine-s6:alpineedge-4.4.16
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-clamav"
 
@@ -13,6 +13,6 @@ ENV \
     CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
-COPY ./1.0/overlay /
+COPY ./1/overlay /
 
 RUN bf-install
