@@ -1,9 +1,10 @@
 #!/bin/sh
 
 IMAGE=`cat VERSION`
-CLAMAV=${1:-0.104}
+CLAMAV=${1:-1}
 
 docker buildx build \
+    --load \
     --build-arg BF_IMAGE=clamav \
     --build-arg BF_VERSION=${IMAGE} \
     -f ${CLAMAV}/Dockerfile \
