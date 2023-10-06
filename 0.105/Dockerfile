@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine3.17-4.5.7
+FROM bfren/alpine-s6:alpine3.17-4.5.8
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-clamav"
 
