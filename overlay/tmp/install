@@ -14,7 +14,7 @@ def main [] {
     ]
 
     # save ClamAV version to build log
-    bf build add Unbound $version
+    bf build add ClamAV $version
 
     # download the main database so startup is much quicker (makes for larger image size)
     if (bf env check PUBLISH) { ^freshclaim }
