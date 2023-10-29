@@ -10,12 +10,8 @@ set -euo pipefail
 nu -c "use bf-clamav run ; run preflight"
 
 
-
 #======================================================================================================================
-# Start ClamAV daemon
-#
-# Flags:
-#   -c  use specified configuration file
+# Start ClamAV daemon in foreground mode
 #======================================================================================================================
 
-clamd -c ${BF_CLAMAV_CLAMD_CONF}
+clamd --foreground --config-file=${BF_CLAMAV_CLAMD_CONF}
