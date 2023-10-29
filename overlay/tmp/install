@@ -1,42 +1,25 @@
-#!/bin/sh
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
+use bf
 
+# Setup and install ClamAV
+def main [] {
+    # get ClamAV version and install
+    cd /tmp
+    let version = bf fs read ./CLAMAV_BUILD
+    bf write $"Installing ClamAV v($version)."
+    bf pkg install [
+        $"clamav-daemon=($version)"
+        $"clamav-libunrar=($version)"
+    ]
 
-#======================================================================================================================
-# Get ClamAV Version.
-#======================================================================================================================
+    # save ClamAV version to build log
+    bf build add Unbound $version
 
-cd /tmp
+    # download the main database so startup is much quicker (makes for larger image size)
+    if (bf env check PUBLISH) { ^freshclaim }
 
-VERSION=$(cat CLAMAV_BUILD)
-bf-echo "ClamAV version ${VERSION}."
-
-
-#======================================================================================================================
-# Install ClamAV and dependencies.
-#======================================================================================================================
-
-bf-echo "Installing ClamAV v${VERSION}..."
-apk add --no-cache \
-    clamav-daemon=${VERSION} \
-    clamav-libunrar=${VERSION}
-bf-done
-
-
-#======================================================================================================================
-# Download the main database so startup is much quicker (makes for larger image size).
-#======================================================================================================================
-
-if [ "${BF_PUBLISH-}" = "1" ] ; then
-    freshclam
-fi
-
-
-#======================================================================================================================
-# Cleanup.
-#======================================================================================================================
-
-bf-echo "Cleaning up default ClamAV configuration."
-rm -rf /etc/clamav/*
+    # cleanup
+    bf write "Removing default ClamAV configuration"
+    rm -rf /etc/clamav/*
+}

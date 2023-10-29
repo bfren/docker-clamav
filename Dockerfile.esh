@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine<%= ${ALPINE_MINOR} %>-<%= ${BASE_REVISION} %>
+FROM bfren/alpine-s6:alpine<%= ${ALPINE_EDITION} %>-<%= ${BASE_VERSION} %>
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-clamav"
 
@@ -10,9 +10,9 @@ EXPOSE 3310
 
 ENV \
     # the number of times per day freshclam will run to update definitions
-    CLAMAV_FRESH_PER_DAY=12
+    BF_CLAMAV_FRESH_PER_DAY=12
 
 COPY ./overlay /
-COPY ./<%= ${CLAMAV_MINOR} %>/overlay /
+COPY ./<%= ${CLAMAV_VERSION} %>/overlay /
 
 RUN bf-install
