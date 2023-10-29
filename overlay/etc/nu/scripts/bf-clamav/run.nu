@@ -8,6 +8,6 @@ export def preflight [] {
     # manually set executing script
     bf env set X clamav/run
 
-    # if we get here we are ready to start Unbound
-    bf write "Starting ClamAV daemon."
+    # if we get here we are ready to start ClamAV
+    bf write "Starting ClamAV."
 }

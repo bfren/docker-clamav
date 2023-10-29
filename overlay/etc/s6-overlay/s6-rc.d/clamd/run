@@ -11,7 +11,7 @@ nu -c "use bf-clamav run ; run preflight"
 
 
 #======================================================================================================================
-# Start ClamAV daemon in foreground mode
+# Start ClamAV in foreground mode
 #======================================================================================================================
 
 clamd --foreground --config-file=${BF_CLAMAV_CLAMD_CONF}
