@@ -6,7 +6,7 @@ export def preflight [] {
     bf env load
 
     # manually set executing script
-    bf env set X clamav/run
+    bf env x_set --override run clamav
 
     # if we get here we are ready to start ClamAV
     bf write "Starting ClamAV."
