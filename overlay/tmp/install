@@ -19,6 +19,9 @@ def main [] {
     # download the main database so startup is much quicker (makes for larger image size)
     if (bf env check PUBLISH) { ^freshclaim }
 
+    # add bf-clamav module to config
+    bf config use bf-clamav
+
     # cleanup
     bf write "Removing default ClamAV configuration"
     rm -rf /etc/clamav/*
