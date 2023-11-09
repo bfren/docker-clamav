@@ -6,13 +6,13 @@ ARG BF_IMAGE
 ARG BF_VERSION
 ARG BF_PUBLISH
 
+COPY ./overlay /
+COPY ./0.104/overlay /
+
 EXPOSE 3310
 
 ENV \
     # the number of times per day freshclam will run to update definitions
     BF_CLAMAV_FRESH_PER_DAY=12
-
-COPY ./overlay /
-COPY ./0.104/overlay /
 
 RUN bf-install
