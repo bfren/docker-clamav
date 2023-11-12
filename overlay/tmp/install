@@ -6,7 +6,7 @@ use bf
 def main [] {
     # get ClamAV version and install
     cd /tmp
-    let version = bf fs read ./CLAMAV_BUILD
+    let version = bf fs read CLAMAV_BUILD
     bf write $"Installing ClamAV v($version)."
     bf pkg install [
         $"clamav-daemon=($version)"
