@@ -1,15 +1,17 @@
-#!/command/with-contenv sh
+#!/bin/withenv sh
 
 set -euo pipefail
-export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Run clamav in daemon mode.
-#
-# Clamd flags
-#   -c  use specified configuration file
+# Run preflight checks
 #======================================================================================================================
 
-bf-echo "Starting ClamAV daemon."
-clamd -c ${CLAMAV_CLAMD_CONF}
+nu -c "use bf-clamav run ; run preflight"
+
+
+#======================================================================================================================
+# Start ClamAV in foreground mode
+#======================================================================================================================
+
+clamd --foreground --config-file=${BF_CLAMAV_CLAMD_CONF}

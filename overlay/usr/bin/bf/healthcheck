@@ -1,12 +1,10 @@
-#!/bin/sh
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
+use bf
+bf env load -x
 
-
-#======================================================================================================================
-# Ping ClamAV port to check it is healthy.
-#======================================================================================================================
-
-[[ "$(echo PING | nc localhost 3310)" = "PONG" ]] && exit 0
-exit 1
+# Ping ClamAV port
+def main [] {
+    bf write debug $"Pinging ClamAV port."
+    if ({ ^echo PING | ^nc localhost 3310 } | bf handle -i) != "PONG" { exit 1 }
+}
