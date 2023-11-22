@@ -17,7 +17,7 @@ def main [] {
     bf build add ClamAV $version
 
     # download the main database so startup is much quicker (makes for larger image size)
-    if (bf env check PUBLISH) { ^freshclaim }
+    if (bf env check PUBLISH) { ^freshclam }
 
     # add bf-clamav module to config
     bf config use bf-clamav
