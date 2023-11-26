@@ -4,7 +4,7 @@ set -euo pipefail
 
 docker pull bfren/alpine
 
-BASE_VERSION="5.0.2"
+BASE_VERSION="5.0.3"
 echo "Base: ${BASE_VERSION}"
 
 CLAMAV_VERSIONS="0.104 0.105 1"
