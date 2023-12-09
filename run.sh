@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IMAGE=`cat VERSION`
-CLAMAV=${1:-1}
+CLAMAV=${1:-1.2}
 
 docker buildx build \
     --load \
