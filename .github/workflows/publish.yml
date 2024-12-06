@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        clamav: [ "0.104", "0.105", "1.1", "1.2" ]
+        clamav: [ "0.104", "0.105", "1.1", "1.2", "1.4" ]
     runs-on: ubuntu-latest
     steps:
       -
@@ -90,7 +90,7 @@ jobs:
       -
         name: Build and push default tags
         id: docker_build_default
-        if: matrix.clamav == '1.2'
+        if: matrix.clamav == '1.4'
         uses: docker/build-push-action@v6
         with:
           context: .
