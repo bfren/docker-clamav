@@ -2,7 +2,7 @@
 
 IMAGE=clamav
 VERSION=`cat VERSION`
-CLAMAV=${1:-1.2}
+CLAMAV=${1:-1.4}
 TAG=${IMAGE}-test
 
 docker buildx build \

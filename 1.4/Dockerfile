@@ -1,4 +1,4 @@
-FROM ghcr.io/bfren/alpine-s6:alpine3.16-5.5.0
+FROM ghcr.io/bfren/alpine-s6:alpine3.21-5.5.0
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-clamav"
 
@@ -7,7 +7,7 @@ ARG BF_PUBLISHING
 ARG BF_VERSION
 
 COPY ./overlay /
-COPY ./0.104/overlay /
+COPY ./1.4/overlay /
 
 EXPOSE 3310
 
