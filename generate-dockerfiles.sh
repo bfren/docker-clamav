@@ -7,7 +7,7 @@ docker pull bfren/alpine
 BASE_VERSION="5.4.14"
 echo "Base: ${BASE_VERSION}"
 
-CLAMAV_VERSIONS="0.104 0.105 1.1 1.2"
+CLAMAV_VERSIONS="0.104 0.105 1.1 1.2 1.4"
 for V in ${CLAMAV_VERSIONS} ; do
 
     echo "ClamAV ${V}"
