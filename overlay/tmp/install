@@ -20,7 +20,7 @@ def main [] {
     if (bf env check PUBLISHING) { ^freshclam }
 
     # add bf-clamav module to config
-    bf config use bf-clamav
+    bf config use_mod bf-clamav
 
     # cleanup
     bf write "Removing default ClamAV configuration"
