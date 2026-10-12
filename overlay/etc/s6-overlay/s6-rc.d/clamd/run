@@ -1,17 +1,24 @@
-#!/bin/withenv sh
+#!/usr/bin/nu
 
-set -euo pipefail
+use bf
+use bf-s6
+bf env load
 
-
-#======================================================================================================================
-# Run preflight checks
-#======================================================================================================================
-
-nu -c "use bf-clamav run ; run preflight"
-
-
-#======================================================================================================================
 # Start ClamAV in foreground mode
-#======================================================================================================================
+def main [
+    name: string    # The service name, passed by s6-supervise
+] {
+    # set executable name - used to make log output more useful
+    bf env x_set --override run $name
 
-exec clamd --foreground --config-file=${BF_CLAMAV_CLAMD_CONF}
+    # run checks before executing service
+    bf write debug "No pre-run checks required."
+
+    # launch ClamAV service
+    bf write "Starting ClamAV."
+    let args = [
+        "--foreground"
+        $"--config-file=(bf env CLAMAV_CLAMD_CONF)"
+    ]
+    bf-s6 svc launch clamd ...$args
+}
