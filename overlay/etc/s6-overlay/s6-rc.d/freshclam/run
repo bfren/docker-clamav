@@ -18,6 +18,6 @@ def main [
     # launch freshclam service
     let per_day = bf env CLAMAV_FRESH_PER_DAY
     bf write $"Starting ClamAV updater, checking ($per_day) times per day."
-    let args = bf-clamav freshclam_daemon_args $per_day | append $"--config-file=(bf env CLAMAV_FRESHCLAM_CONF)"
+    let args = bf-clamav freshclam daemon_args $per_day | append $"--config-file=(bf env CLAMAV_FRESHCLAM_CONF)"
     bf-s6 svc launch freshclam ...$args
 }
