@@ -92,8 +92,9 @@ The health check (every 30 seconds) sends `PING` to port 3310 and expects `PONG`
 ## Testing
 
 ```sh
-./test.sh                   # builds ClamAV 1.4 and runs /test
-./test.sh 1.2               # or any version directory
+./test.nu                   # builds ClamAV 1.4 and runs /test
+./test.nu 1.2               # or any version directory
+./test.nu --all             # every version, in parallel
 ./run.sh 1.4                # builds and opens a shell
 ./generate-dockerfiles.sh   # regenerates the Dockerfiles from Dockerfile.esh
 ```
