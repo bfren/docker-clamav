@@ -15,7 +15,7 @@ The virus database is included in published images, so the scanner is ready quic
 ```yaml
 services:
   clamav:
-    image: quay.io/bfren/clamav:clamav1.4-5.1
+    image: quay.io/bfren/clamav:clamav1.4-5.2
     restart: unless-stopped
 
   app:
@@ -44,14 +44,14 @@ docker compose exec clamav sh -c 'echo PING | nc localhost 3310'   # PONG
 
 Images are published to Docker Hub (`bfren/clamav`) and Quay.io (`quay.io/bfren/clamav`) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`.
 
-| Tag                            | Example            | Use when                                       |
-| ------------------------------ | ------------------ | ---------------------------------------------- |
-| `clamavX.Y`                    | `clamav1.4`        | You want the latest image for a ClamAV version |
-| `clamavX.Y-MAJOR`              | `clamav1.4-5`      | You want updates, but not breaking changes     |
-| `clamavX.Y-MINOR`              | `clamav1.4-5.1`    | You want fixes only - **recommended**          |
-| `clamavX.Y-VERSION`            | `clamav1.4-5.1.15` | You want to pin this image exactly             |
-| `clamavX.Y.Z`                  | `clamav1.4.6`      | You want an exact ClamAV release               |
-| `latest`, `5`, `5.1`, `5.1.15` |                    | As above, on ClamAV 1.4                        |
+| Tag                           | Example           | Use when                                       |
+| ----------------------------- | ----------------- | ---------------------------------------------- |
+| `clamavX.Y`                   | `clamav1.4`       | You want the latest image for a ClamAV version |
+| `clamavX.Y-MAJOR`             | `clamav1.4-5`     | You want updates, but not breaking changes     |
+| `clamavX.Y-MINOR`             | `clamav1.4-5.2`   | You want fixes only - **recommended**          |
+| `clamavX.Y-VERSION`           | `clamav1.4-5.2.0` | You want to pin this image exactly             |
+| `clamavX.Y.Z`                 | `clamav1.4.6`     | You want an exact ClamAV release               |
+| `latest`, `5`, `5.2`, `5.2.0` |                   | As above, on ClamAV 1.4                        |
 
 | ClamAV | Release | Alpine | Support                                   |
 | ------ | ------- | ------ | ----------------------------------------- |
