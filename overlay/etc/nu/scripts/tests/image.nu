@@ -8,7 +8,11 @@ use bf
 
 export def install__clamav_matches_build [] {
     let build = with-env {BF_ETC: "/etc/bf"} { bf build | get ClamAV }
-    let installed = ^clamd --version | parse --regex 'ClamAV (?<v>\d+\.\d+\.\d+)' | get v.0
+    # clamd reads its configuration file before handling --version, and the configuration is only generated on start,
+    # so give it an empty one
+    let conf = mktemp --tmpdir
+    let installed = ^clamd $"--config-file=($conf)" --version | parse --regex 'ClamAV (?<v>\d+\.\d+\.\d+)' | get v.0
+    rm --force $conf
 
     assert ($build | str starts-with $installed) $"ClamAV ($installed) should match the build ($build)"
 }
