@@ -1,0 +1,8 @@
+#!/usr/bin/nu
+
+use bf
+use bf-s6
+bf env load -x freshclam
+
+# Show helpful log message - s6 restarts freshclam if it stops, without stopping the container
+def main [...args] { bf-s6 svc finish ...$args }

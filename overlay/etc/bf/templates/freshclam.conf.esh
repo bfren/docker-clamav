@@ -26,7 +26,7 @@ LogTime yes
 
 # Use system logger (can work together with UpdateLogFile).
 # Default: no
-LogSyslog yes
+LogSyslog no
 
 # Specify the type of syslog messages - please refer to 'man syslog'
 # for facility names.

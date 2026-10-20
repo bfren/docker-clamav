@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        clamav: [ "0.104", "0.105", "1.1", "1.2", "1.4" ]
+        clamav: [ "1.2", "1.4" ]
     runs-on: ubuntu-latest
     steps:
       -
@@ -30,6 +30,24 @@ jobs:
         with:
           file: ./VERSION
         id: version
+      -
+        name: Read ClamAV version
+        uses: bfren/read-file@v2
+        with:
+          file: ./${{ matrix.clamav }}/overlay/tmp/CLAMAV_REVISION
+        id: clamav_revision
+      -
+        name: Read image version
+        uses: bfren/read-file@v2
+        with:
+          file: ./VERSION_MAJOR
+        id: version_major
+      -
+        name: Read image version
+        uses: bfren/read-file@v2
+        with:
+          file: ./VERSION_MINOR
+        id: version_minor
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v4
@@ -79,9 +97,37 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/clamav:clamav${{ matrix.clamav }}-dev
+            bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_major.outputs.contents }}-dev
+            bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}-dev
             bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-dev
+            bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}-dev
             quay.io/bfren/clamav:clamav${{ matrix.clamav }}-dev
+            quay.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_major.outputs.contents }}-dev
+            quay.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version_minor.outputs.contents }}-dev
             quay.io/bfren/clamav:clamav${{ matrix.clamav }}-${{ steps.version.outputs.contents }}-dev
+            quay.io/bfren/clamav:clamav${{ steps.clamav_revision.outputs.contents }}-dev
+      -
+        name: Build and push default tags
+        id: docker_build_default
+        if: matrix.clamav == '1.4'
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./${{ matrix.clamav }}/Dockerfile
+          build-args: |
+            BF_IMAGE=${{ env.REPOSITORY_NAME }}
+            BF_VERSION=${{ steps.version.outputs.contents }}
+          push: ${{ startsWith(github.ref, 'refs/heads/') }}
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          tags: |
+            bfren/clamav:dev
+            bfren/clamav:${{ steps.version_major.outputs.contents }}-dev
+            bfren/clamav:${{ steps.version_minor.outputs.contents }}-dev
+            bfren/clamav:${{ steps.version.outputs.contents }}-dev
+            quay.io/bfren/clamav:dev
+            quay.io/bfren/clamav:${{ steps.version_major.outputs.contents }}-dev
+            quay.io/bfren/clamav:${{ steps.version_minor.outputs.contents }}-dev
+            quay.io/bfren/clamav:${{ steps.version.outputs.contents }}-dev
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

@@ -1,0 +1,23 @@
+#!/usr/bin/nu
+
+use bf
+use bf-clamav
+use bf-s6
+bf env load
+
+# Start freshclam in daemon mode, in the foreground, to keep the database up to date
+def main [
+    name: string    # The service name, passed by s6-supervise
+] {
+    # set executable name - used to make log output more useful
+    bf env x_set --override run $name
+
+    # run checks before executing service
+    bf write debug "No pre-run checks required."
+
+    # launch freshclam service
+    let per_day = bf env CLAMAV_FRESH_PER_DAY
+    bf write $"Starting ClamAV updater, checking ($per_day) times per day."
+    let args = bf-clamav freshclam daemon_args $per_day | append $"--config-file=(bf env CLAMAV_FRESHCLAM_CONF)"
+    bf-s6 svc launch freshclam ...$args
+}
