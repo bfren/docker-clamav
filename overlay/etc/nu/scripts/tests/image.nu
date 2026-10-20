@@ -29,7 +29,7 @@ export def install__default_configuration_is_removed [] {
 
 export def scripts__parse [] {
     let paths = [
-        "/usr/bin/bf/bf-healthcheck"
+        "/etc/bf/health.d/10-clamd.nu"
         "/etc/s6-overlay/s6-rc.d/clamd/run"
         "/etc/s6-overlay/s6-rc.d/clamd/finish"
         "/etc/s6-overlay/s6-rc.d/freshclam/run"
