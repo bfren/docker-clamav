@@ -15,7 +15,7 @@ The virus database is included in published images, so the scanner is ready quic
 ```yaml
 services:
   clamav:
-    image: quay.io/bfren/clamav:clamav1.4-5.2
+    image: quay.io/bfren/clamav:clamav1.4-6.0
     restart: unless-stopped
 
   app:
@@ -47,11 +47,11 @@ Images are published to Docker Hub (`bfren/clamav`) and Quay.io (`quay.io/bfren/
 | Tag                           | Example           | Use when                                       |
 | ----------------------------- | ----------------- | ---------------------------------------------- |
 | `clamavX.Y`                   | `clamav1.4`       | You want the latest image for a ClamAV version |
-| `clamavX.Y-MAJOR`             | `clamav1.4-5`     | You want updates, but not breaking changes     |
-| `clamavX.Y-MINOR`             | `clamav1.4-5.2`   | You want fixes only - **recommended**          |
-| `clamavX.Y-VERSION`           | `clamav1.4-5.2.0` | You want to pin this image exactly             |
+| `clamavX.Y-MAJOR`             | `clamav1.4-6`     | You want updates, but not breaking changes     |
+| `clamavX.Y-MINOR`             | `clamav1.4-6.0`   | You want fixes only - **recommended**          |
+| `clamavX.Y-VERSION`           | `clamav1.4-6.0.0` | You want to pin this image exactly             |
 | `clamavX.Y.Z`                 | `clamav1.4.6`     | You want an exact ClamAV release               |
-| `latest`, `5`, `5.2`, `5.2.0` |                   | As above, on ClamAV 1.4                        |
+| `latest`, `6`, `6.0`, `6.0.0` |                   | As above, on ClamAV 1.4                        |
 
 | ClamAV | Release | Alpine | Support                                   |
 | ------ | ------- | ------ | ----------------------------------------- |
