@@ -27,5 +27,4 @@ for V in ${CLAMAV_VERSIONS} ; do
 
 done
 
-docker system prune -f
 echo "Done."
