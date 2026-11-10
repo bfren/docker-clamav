@@ -49,9 +49,9 @@ Images are published to Docker Hub (`bfren/clamav`) and Quay.io (`quay.io/bfren/
 | `clamavX.Y`                   | `clamav1.4`       | You want the latest image for a ClamAV version |
 | `clamavX.Y-MAJOR`             | `clamav1.4-6`     | You want updates, but not breaking changes     |
 | `clamavX.Y-MINOR`             | `clamav1.4-6.0`   | You want fixes only - **recommended**          |
-| `clamavX.Y-VERSION`           | `clamav1.4-6.0.1` | You want to pin this image exactly             |
+| `clamavX.Y-VERSION`           | `clamav1.4-6.0.2` | You want to pin this image exactly             |
 | `clamavX.Y.Z`                 | `clamav1.4.6`     | You want an exact ClamAV release               |
-| `latest`, `6`, `6.0`, `6.0.1` |                   | As above, on ClamAV 1.4                        |
+| `latest`, `6`, `6.0`, `6.0.2` |                   | As above, on ClamAV 1.4                        |
 
 | ClamAV | Release | Alpine | Support                                   |
 | ------ | ------- | ------ | ----------------------------------------- |
