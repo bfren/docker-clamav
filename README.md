@@ -25,6 +25,8 @@ services:
       - CLAMAV_PORT=3310
 ```
 
+This example is also in [`docker-compose.yml`](docker-compose.yml).
+
 Run `docker compose up -d` - your app connects to `clamav:3310` using the clamd protocol (most languages have a client library). To check it is working:
 
 ```sh

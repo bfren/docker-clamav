@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.3] - Unreleased
+
+### Added
+
+- `docker-compose.yml` - the Quickstart example as a file you can copy.
+
 ## [6.0.2] - 2026-11-10
 
 ### Changed
@@ -37,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release images tagged `clamavX.Y…` no longer include the tests module and preinstall script - only `latest` and
   the bare version tags (e.g. `5.2.4`) had them removed before.
 
+[6.0.3]: https://github.com/bfren/docker-clamav/compare/v6.0.2...v6.0.3
 [6.0.2]: https://github.com/bfren/docker-clamav/compare/v6.0.1...v6.0.2
 [6.0.1]: https://github.com/bfren/docker-clamav/compare/v6.0.0...v6.0.1
 [6.0.0]: https://github.com/bfren/docker-clamav/compare/v5.2.4...v6.0.0

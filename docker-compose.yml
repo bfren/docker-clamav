@@ -1,0 +1,10 @@
+services:
+  clamav:
+    image: quay.io/bfren/clamav:clamav1.4-6.0
+    restart: unless-stopped
+
+  app:
+    image: your/app
+    environment:
+      - CLAMAV_HOST=clamav
+      - CLAMAV_PORT=3310
