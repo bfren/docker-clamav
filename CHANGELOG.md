@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `docker-compose.yml` - the Quickstart example as a file you can copy.
 
+### Changed
+
+- ClamAV 1.4 updated to 1.4.7.
+
 ## [6.0.2] - 2026-11-10
 
 ### Changed
