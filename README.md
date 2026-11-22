@@ -55,6 +55,8 @@ Images are published to Docker Hub (`bfren/clamav`) and Quay.io (`quay.io/bfren/
 | `clamavX.Y.Z`                 | `clamav1.4.6`     | You want an exact ClamAV release               |
 | `latest`, `6`, `6.0`, `6.0.3` |                   | As above, on ClamAV 1.4                        |
 
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
+
 | ClamAV | Release | Alpine | Support                                   |
 | ------ | ------- | ------ | ----------------------------------------- |
 | 1.4    | 1.4.6   | 3.24   | LTS - supported until 2027-08-15          |
