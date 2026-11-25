@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.3] - 2026-11-25
+
+### Added
+
+- `docker-compose.yml` - the Quickstart example as a file you can copy.
+
+### Changed
+
+- Base image updated to `bfren/alpine-s6` 7.0.3, which rebuilds BusyBox, figlet and Nushell without changing
+  their versions - see the [Alpine + S6 changelog](https://github.com/bfren/docker-alpine-s6/blob/main/CHANGELOG.md).
+- ClamAV 1.4 updated to 1.4.7.
+
 ## [6.0.2] - 2026-11-10
 
 ### Changed
@@ -37,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release images tagged `clamavX.Y…` no longer include the tests module and preinstall script - only `latest` and
   the bare version tags (e.g. `5.2.4`) had them removed before.
 
+[6.0.3]: https://github.com/bfren/docker-clamav/compare/v6.0.2...v6.0.3
 [6.0.2]: https://github.com/bfren/docker-clamav/compare/v6.0.1...v6.0.2
 [6.0.1]: https://github.com/bfren/docker-clamav/compare/v6.0.0...v6.0.1
 [6.0.0]: https://github.com/bfren/docker-clamav/compare/v5.2.4...v6.0.0

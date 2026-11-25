@@ -25,6 +25,8 @@ services:
       - CLAMAV_PORT=3310
 ```
 
+This example is also in [`docker-compose.yml`](docker-compose.yml).
+
 Run `docker compose up -d` - your app connects to `clamav:3310` using the clamd protocol (most languages have a client library). To check it is working:
 
 ```sh
@@ -49,13 +51,15 @@ Images are published to Docker Hub (`bfren/clamav`) and Quay.io (`quay.io/bfren/
 | `clamavX.Y`                   | `clamav1.4`       | You want the latest image for a ClamAV version |
 | `clamavX.Y-MAJOR`             | `clamav1.4-6`     | You want updates, but not breaking changes     |
 | `clamavX.Y-MINOR`             | `clamav1.4-6.0`   | You want fixes only - **recommended**          |
-| `clamavX.Y-VERSION`           | `clamav1.4-6.0.2` | You want to pin this image exactly             |
-| `clamavX.Y.Z`                 | `clamav1.4.6`     | You want an exact ClamAV release               |
-| `latest`, `6`, `6.0`, `6.0.2` |                   | As above, on ClamAV 1.4                        |
+| `clamavX.Y-VERSION`           | `clamav1.4-6.0.3` | You want to pin this image exactly             |
+| `clamavX.Y.Z`                 | `clamav1.4.7`     | You want an exact ClamAV release               |
+| `latest`, `6`, `6.0`, `6.0.3` |                   | As above, on ClamAV 1.4                        |
+
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
 
 | ClamAV | Release | Alpine | Support                                   |
 | ------ | ------- | ------ | ----------------------------------------- |
-| 1.4    | 1.4.6   | 3.24   | LTS - supported until 2027-08-15          |
+| 1.4    | 1.4.7   | 3.24   | LTS - supported until 2027-08-15          |
 | 1.2    | 1.2.2   | 3.20   | ended 2024-12-15 - updates may be blocked |
 
 Use 1.4. ClamAV blocks versions it no longer supports from downloading virus database updates, and 1.2 may be blocked at any time. Images for older versions (0.104, 0.105 and 1.1) are no longer built. A scanner with an old database misses new threats. See ClamAV's [end-of-life policy](https://docs.clamav.net/faq/faq-eol.html).
