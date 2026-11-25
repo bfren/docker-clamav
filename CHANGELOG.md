@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.3] - Unreleased
+## [6.0.3] - 2026-11-25
 
 ### Added
 
@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Base image updated to `bfren/alpine-s6` 7.0.3, which rebuilds BusyBox, figlet and Nushell without changing
+  their versions - see the [Alpine + S6 changelog](https://github.com/bfren/docker-alpine-s6/blob/main/CHANGELOG.md).
 - ClamAV 1.4 updated to 1.4.7.
 
 ## [6.0.2] - 2026-11-10
